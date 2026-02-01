@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTCorp - Transformação Digital e Bem-Estar</title>
+    <meta name="description" content="Explore o catálogo da TTCorp: Ebooks exclusivos sobre marketing, saúde e liberdade financeira.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld-json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "TTCorp",
+      "url": "https://ttcorp.com.br",
+      "logo": "TTCorp",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "xcorp313@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #6366f1;
+            --gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        /* --- Navbar --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 5%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        .btn-entrar {
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            padding: 180px 5% 100px;
+            text-align: center;
+            background: radial-gradient(circle at top, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .btn-main {
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            background: var(--gradient);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.5);
+        }
+
+        /* --- Grid de Produtos --- */
+        .products-grid {
+            padding: 80px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: var(--accent);
+        }
+
+        .card-emoji { font-size: 3rem; margin-bottom: 1rem; }
+        .card-title { font-size: 1.3rem; margin-bottom: 1rem; height: 3.2rem; display: flex; align-items: center;}
+        .card-strategy { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; min-height: 4.5rem;}
+        .card-price { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: #10b981; }
+
+        .btn-buy {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            border: none;
+            background: rgba(255,255,255,0.05);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .card:hover .btn-buy {
+            background: var(--gradient);
+        }
+
+        /* --- Testimonials --- */
+        .testimonials {
+            padding: 100px 5%;
+            background: rgba(30, 41, 59, 0.5);
+            text-align: center;
+        }
+
+        .carousel {
+            max-width: 800px;
+            margin: 40px auto 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-item {
+            min-width: 100%;
+            padding: 2rem;
+        }
+
+        .testimonial-item p { font-style: italic; font-size: 1.2rem; }
+        .testimonial-item span { display: block; margin-top: 1rem; color: var(--accent); font-weight: bold; }
+
+        /* --- FAQ Acordeão --- */
+        .faq { padding: 100px 5%; max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            color: var(--text-secondary);
+        }
+        .faq-item.active .faq-answer { padding-bottom: 1.5rem; max-height: 200px; }
+
+        /* --- Suporte Flutuante --- */
+        .floating-support {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366; /* Cor WhatsApp para destaque */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            text-decoration: none;
+            animation: pulse 2s infinite;
+            z-index: 999;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 60px 5%;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .footer-links { margin: 20px 0; display: flex; justify-content: center; gap: 2rem; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">TTCORP</div>
+        <div class="nav-links">
+            <a href="#produtos">Produtos</a>
+            <a href="#faq">FAQ</a>
+            <a href="mailto:xcorp313@gmail.com">Suporte</a>
+            <button class="btn-entrar">Entrar</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Transforme Sua Vida<br><span style="color: var(--accent)">Em 2026.</span></h1>
+        <p>Acesso exclusivo aos melhores treinamentos de marketing digital, saúde e alta performance do mercado brasileiro.</p>
+        <a href="#produtos" class="btn-main">Ver Catálogo Completo</a>
+    </section>
+
+    <section class="products-grid" id="produtos">
+        </section>
+
+    <section class="testimonials">
+        <h2>O que dizem nossos alunos</h2>
+        <div class="carousel">
+            <div class="testimonial-track" id="testimonialTrack">
+                <div class="testimonial-item">
+                    <p>"O império digital mudou meu jogo. Saí do zero para 5 dígitos em meses."</p>
+                    <span>— Marcos Oliveira</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"As receitas de emagrecimento são práticas e realmente funcionam."</p>
+                    <span>— Ana Paula</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Suporte nota 10 e conteúdo direto ao ponto, sem enrolação."</p>
+                    <span>— Ricardo Santos</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Melhor investimento que fiz esse ano para minha saúde mental."</p>
+                    <span>— Juliana Costa</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"O método de tráfego grátis me economizou milhares de reais em anúncios."</p>
+                    <span>— Felipe M.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <h2 style="text-align: center; margin-bottom: 3rem;">Perguntas Frequentes</h2>
+        <div id="faqContainer"></div>
+    </section>
+
+    <a href="mailto:xcorp313@gmail.com" class="floating-support" title="Falar com Suporte">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
+    </a>
+
+    <footer>
+        <div class="logo">TTCORP</div>
+        <div class="footer-links">
+            <a href="#">Privacidade</a>
+            <a href="#">Termos de Uso</a>
+            <a href="mailto:xcorp313@gmail.com">Contato</a>
+        </div>
+        <p>&copy; 2026 TTCorp - Todos os direitos reservados.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">contato: xcorp313@gmail.com</p>
+    </footer>
+
+    <script>
+        // Dados dos Produtos
+        const products = [
+            { emoji: "🥗", title: "Dietas Milagrosas", price: "47", strategy: "Transformação corporal comprovada + Resultados em 14 dias", link: "https://go.hotmart.com/U103736083B?dp=1" },
+            { emoji: "📱", title: "Vender Facebook", price: "67", strategy: "Domine o algoritmo + 10x ROI", link: "https://go.hotmart.com/F103750173D" },
+            { emoji: "📸", title: "Instagram 2026", price: "97", strategy: "Crescimento orgânico + Monetização pronta", link: "https://go.hotmart.com/D103750718D?dp=1" },
+            { emoji: "🍎", title: "Emagrecimento Saúde", price: "50", strategy: "Método científico + Sem sofrer", link: "https://go.hotmart.com/W103752212H?dp=1" },
+            { emoji: "💰", title: "Investir com Pouco", price: "57", strategy: "Começar pequeno, ganhar grande", link: "https://go.hotmart.com/N103752960O?dp=1" },
+            { emoji: "🔥", title: "Vender Hotmart", price: "87", strategy: "Automação de vendas + Passive income", link: "https://go.hotmart.com/K103753812Y?dp=1" },
+            { emoji: "🚀", title: "Negócios Online", price: "99", strategy: "Do zero ao sucesso em 30 dias", link: "https://go.hotmart.com/M103754887K?dp=1" },
+            { emoji: "⚖️", title: "Perdendo Peso", price: "37", strategy: "Método acelerado + Garantia de resultados", link: "https://go.hotmart.com/Q103766780H?dp=1" },
+            { emoji: "🍲", title: "Receitas Emagrecer", price: "30", strategy: "Delicioso + eficaz + prático", link: "https://go.hotmart.com/G103768379Y?dp=1" },
+            { emoji: "🏃", title: "20 Quilos", price: "77", strategy: "Transformação total + Suporte incluso", link: "https://go.hotmart.com/G103771070G?dp=1" },
+            { emoji: "💸", title: "Renda Extra", price: "47", strategy: "Ganha na primeira semana", link: "https://go.hotmart.com/O103771949R?dp=1" },
+            { emoji: "🌐", title: "Trafego Grátis", price: "67", strategy: "Visitantes ilimitados sem anúncios", link: "https://go.hotmart.com/X103772427B?dp=1" },
+            { emoji: "🎯", title: "Venda na Internet", price: "60", strategy: "Psicologia + técnicas que funcionam", link: "https://go.hotmart.com/W103774649A?dp=1" },
+            { emoji: "💎", title: "Vida com Proposito", price: "44", strategy: "Clareza mental + ação imediata", link: "https://go.hotmart.com/S103775131F" },
+            { emoji: "🧘", title: "Despertar Interior", price: "40", strategy: "Paz mental + Produtividade", link: "https://go.hotmart.com/U103810174Q?dp=1" },
+            { emoji: "👑", title: "Imperio Digital", price: "197", strategy: "Liberdade financeira total em 2026", link: "https://go.hotmart.com/V104190535L?dp=1" }
+        ];
+
+        // Render Cards
+        const grid = document.getElementById('produtos');
+        products.forEach(p => {
+            grid.innerHTML += `
+                <div class="card">
+                    <div class="card-emoji">${p.emoji}</div>
+                    <h3 class="card-title">${p.title}</h3>
+                    <p class="card-strategy">${p.strategy}</p>
+                    <div class="card-price">R$ ${p.price}</div>
+                    <a href="${p.link}" target="_blank" class="btn-buy">COMPRAR AGORA</a>
+                </div>
+            `;
+        });
+
+        // FAQ Data
+        const faqs = [
+            { q: "Como recebo o acesso?", a: "Imediatamente após a confirmação do pagamento, você receberá os dados de acesso no seu e-mail cadastrado." },
+            { q: "Os cursos são atualizados?", a: "Sim! Todos os nossos conteúdos são revisados periodicamente para garantir que você tenha as estratégias de 2026." },
+            { q: "Tenho garantia?", a: "Com certeza. Oferecemos 7 dias de garantia incondicional em todos os produtos da TTCorp." },
+            { q: "Quais as formas de pagamento?", a: "Aceitamos Pix (liberação imediata), Cartão de Crédito em até 12x e Boleto." },
+            { q: "O suporte funciona em quais horários?", a: "Nosso suporte via e-mail funciona de segunda a sexta, das 09h às 18h." }
+        ];
+
+        const faqContainer = document.getElementById('faqContainer');
+        faqs.forEach(f => {
+            faqContainer.innerHTML += `
+                <div class="faq-item">
+                    <div class="faq-question">${f.q} <span>+</span></div>
+                    <div class="faq-answer"><p>${f.a}</p></div>
+                </div>
+            `;
+        });
+
+        // FAQ Logic
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Testimonial Carousel
+        let currentSlide = 0;
+        const track = document.getElementById('testimonialTrack');
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % 5;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }, 4000);
+    </script>
+</body>
+</html>
